@@ -1,13 +1,24 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import styled from "styled-components";
-import GlobalStyle from "./globalStyles/global";
+
+import GlobalStyle from "./globalStyles/styles";
+import SelectMovie from "./pages/selectSeat";
+import SelectSeat from "./pages/selectSeat";
+import SelectTime from "./pages/selectTime";
 
 export default function App() {
   return (
     <Container>
       <GlobalStyle />
       <Header>CINEFLEX</Header>
-      <Main></Main>
+
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<SelectMovie />} />
+          <Route path="/sessoes" element={<SelectSeat />} />
+        </Routes>
+      </BrowserRouter>
+
       <Footer></Footer>
     </Container>
   );
@@ -15,9 +26,12 @@ export default function App() {
 
 const Container = styled.div`
   width: 375px;
+  height: 877px;
+  position: relative;
 `;
 
 const Header = styled.header`
+  position: absolute;
   width: 375px;
   height: 67px;
   justify-content: center;
@@ -35,15 +49,9 @@ const Header = styled.header`
   color: #e8833a;
 `;
 
-const Main = styled.main`
-  width: 375px;
-  height: 810px;
-
-  background: #ffffff;
-`;
-
 const Footer = styled.footer`
   position: absolute;
+  bottom: 0;
   width: 375px;
   height: 117px;
 
