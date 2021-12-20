@@ -15,6 +15,17 @@ export const Container = styled.div`
   }
 `;
 
+export const GoBack = styled.button`
+  margin: none;
+  border: none;
+  position: absolute;
+  top: 18px;
+  left: 5px;
+  background-color: transparent;
+
+  color: #444;
+`;
+
 export const Title = styled.div`
   display: flex;
   align-items: center;

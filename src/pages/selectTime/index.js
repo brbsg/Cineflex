@@ -2,7 +2,17 @@ import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
-import { Container, Title, Session, TimeButton, Footer, Img } from "./styles";
+import { FaArrowLeft } from "react-icons/fa";
+
+import {
+  Container,
+  Title,
+  Session,
+  TimeButton,
+  Footer,
+  Img,
+  GoBack,
+} from "./styles";
 
 export default function SelectTime() {
   const [movie, setMovie] = useState(null);
@@ -23,6 +33,10 @@ export default function SelectTime() {
   return (
     <Container>
       <Title>Selecione o horário</Title>
+
+      <GoBack onClick={() => navigate(-1)}>
+        <FaArrowLeft size={25} />
+      </GoBack>
 
       <Session>
         {movie.days.map((e) => (

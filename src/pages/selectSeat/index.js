@@ -14,8 +14,11 @@ import {
   CostumerName,
   BookOrder,
   MovieInfo,
+  GoBack,
 } from "./styles";
 import { useNavigate, useParams } from "react-router-dom";
+
+import { FaArrowLeft } from "react-icons/fa";
 
 export default function SelectSeat(props) {
   const [session, setSession] = useState(null);
@@ -68,20 +71,29 @@ export default function SelectSeat(props) {
   };
 
   const handleBookOrder = () => {
-    if (sendOrder.ids !== [] && sendOrder.name !== "" && sendOrder.cpf !== "") {
+    console.log(sendOrder.ids);
+    if (
+      sendOrder.ids.length !== 0 &&
+      sendOrder.name !== "" &&
+      sendOrder.cpf !== ""
+    ) {
       const req = axios.post(
         "https://mock-api.driven.com.br/api/v4/cineflex/seats/book-many",
         sendOrder
       );
       req
         .then((e) => (navigate("/successfully"), props.parent(sendProps)))
-        .catch((e) => alert("bucetas"));
-    } else alert("penis");
+        .catch((e) => alert("Preencha os Dados Corretamente"));
+    } else alert("Preencha os Dados Corretamente");
   };
 
   if (session == null) return <></>;
   return (
     <Container>
+      <GoBack onClick={() => navigate(-1)}>
+        <FaArrowLeft size={25} />
+      </GoBack>
+
       <Title>Selecione o horário</Title>
       <Grid>
         {session.seats.map((e) => (
