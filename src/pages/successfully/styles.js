@@ -7,7 +7,6 @@ export const Container = styled.div`
   overflow: auto;
   padding-top: 67px;
   padding-bottom: 117px;
-  padding: 20px;
 `;
 
 export const Title = styled.div`

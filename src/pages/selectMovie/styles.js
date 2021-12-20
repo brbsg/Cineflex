@@ -4,7 +4,8 @@ export const Container = styled.div`
   display: grid;
   width: 100%;
   height: 100%;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   padding-top: 67px;
   padding-bottom: 117px;
 `;

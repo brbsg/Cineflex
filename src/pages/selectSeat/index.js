@@ -24,6 +24,7 @@ export default function SelectSeat(props) {
     title: "",
     date: "",
     time: "",
+    seatNumber: [],
     seats: { ids: [], name: "", cpf: "" },
   });
 
@@ -52,15 +53,18 @@ export default function SelectSeat(props) {
   const handleClickSeat = (e, id) => {
     let selecionadoClass = document.getElementsByClassName("selecionado");
     let auxArr = [];
+    let seatNumber = [];
 
     e.classList.toggle("selecionado");
     e.id = id;
 
     for (let element of selecionadoClass) {
       auxArr.push(element.id);
+      seatNumber.push(element.innerHTML);
     }
-
+    console.log(seatNumber);
     setSendOrder({ ...sendOrder, ids: auxArr });
+    setSendProps({ ...sendProps, seatNumber });
   };
 
   const handleBookOrder = () => {
@@ -71,8 +75,8 @@ export default function SelectSeat(props) {
       );
       req
         .then((e) => (navigate("/successfully"), props.parent(sendProps)))
-        .catch((e) => alert("Preencha os Dados Corretamente."));
-    } else alert("Preencha os Dados Corretamente.");
+        .catch((e) => alert("bucetas"));
+    } else alert("penis");
   };
 
   if (session == null) return <></>;

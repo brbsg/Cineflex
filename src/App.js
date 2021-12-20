@@ -10,7 +10,13 @@ import SelectSeat from "./pages/selectSeat";
 import Successfully from "./pages/successfully";
 
 export default function App() {
-  const [successfully, setSuccessfully] = useState({});
+  const [successfully, setSuccessfully] = useState({
+    title: "",
+    date: "",
+    time: "",
+    seatNumber: [],
+    seats: { ids: [], name: "", cpf: "" },
+  });
 
   const handleSuccessfully = (param) => {
     setSuccessfully(param);

@@ -1,14 +1,9 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-
 import { Container, Info, Title } from "./styles";
 import { BackHome } from "./styles";
 import { useNavigate } from "react-router-dom";
 
 export default function Successfully({ order }) {
   let navigate = useNavigate();
-
-  if (order == undefined) return <></>;
 
   return (
     <Container>
@@ -24,9 +19,9 @@ export default function Successfully({ order }) {
 
       <Info>
         <span>Filme e sessão</span>
-        {/* {order.seats.id.map((e) => (
-          <h1>{e}</h1>
-        ))} */}
+        {order.seatNumber.map((e) => (
+          <h1 key={e.id}>Assento {e}</h1>
+        ))}
       </Info>
 
       <Info>
