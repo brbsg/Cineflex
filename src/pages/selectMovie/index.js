@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 import { Container, Button, Img, Title, Grid } from "./styles";
 
-export default function SelectMovie() {
+export default function SelectMovie(props) {
   const [movies, setMovies] = useState([]);
+
+  let navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -16,8 +19,11 @@ export default function SelectMovie() {
     <Container>
       <Title>Selecione o filme</Title>
       <Grid>
-        {movies.map((e) => (
-          <Button imgSrc={e.posterURL} />
+        {movies.map((element) => (
+          <Button
+            imgSrc={element.posterURL}
+            onClick={() => navigate(`/sessoes/${element.id}`)}
+          />
         ))}
       </Grid>
     </Container>

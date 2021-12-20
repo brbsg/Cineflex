@@ -1,12 +1,17 @@
+import { useState } from "react";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import styled from "styled-components";
 
 import GlobalStyle from "./globalStyles/styles";
-import SelectMovie from "./pages/selectSeat";
-import SelectSeat from "./pages/selectSeat";
+import SelectMovie from "./pages/selectMovie";
 import SelectTime from "./pages/selectTime";
+import SelectSeat from "./pages/selectSeat";
+import Successfully from "./pages/successfully";
 
 export default function App() {
+  const [movie, setMovie] = useState(1);
+
   return (
     <Container>
       <GlobalStyle />
@@ -15,11 +20,10 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<SelectMovie />} />
-          <Route path="/sessoes" element={<SelectSeat />} />
+          <Route path={`/sessoes/:idMovie`} element={<SelectTime />} />
+          <Route path={`/assentos/:idSessao`} element={<SelectSeat />} />
         </Routes>
       </BrowserRouter>
-
-      <Footer></Footer>
     </Container>
   );
 }
@@ -47,14 +51,4 @@ const Header = styled.header`
   text-align: center;
 
   color: #e8833a;
-`;
-
-const Footer = styled.footer`
-  position: absolute;
-  bottom: 0;
-  width: 375px;
-  height: 117px;
-
-  background: #dfe6ed;
-  border: 1px solid #9eadba;
 `;
