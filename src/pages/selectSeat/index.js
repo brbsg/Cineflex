@@ -17,9 +17,15 @@ import {
 } from "./styles";
 import { useNavigate, useParams } from "react-router-dom";
 
-export default function SelectSeat() {
+export default function SelectSeat(props) {
   const [session, setSession] = useState(null);
   const [sendOrder, setSendOrder] = useState({ ids: [], name: "", cpf: "" });
+  const [sendProps, setSendProps] = useState({
+    title: "",
+    date: "",
+    time: "",
+    seats: { ids: [], name: "", cpf: "" },
+  });
 
   const { idSessao } = useParams();
 
@@ -30,7 +36,17 @@ export default function SelectSeat() {
       .get(
         `https://mock-api.driven.com.br/api/v4/cineflex/showtimes/${idSessao}/seats`
       )
-      .then((res) => setSession(res.data));
+      .then(
+        (res) => (
+          setSession(res.data),
+          setSendProps({
+            ...sendProps,
+            title: res.data.movie.title,
+            date: res.data.day.date,
+            time: res.data.name,
+          })
+        )
+      );
   }, []);
 
   const handleClickSeat = (e, id) => {
@@ -48,15 +64,13 @@ export default function SelectSeat() {
   };
 
   const handleBookOrder = () => {
-    console.log(sendOrder);
-
     if (sendOrder.ids !== [] && sendOrder.name !== "" && sendOrder.cpf !== "") {
       const req = axios.post(
         "https://mock-api.driven.com.br/api/v4/cineflex/seats/book-many",
         sendOrder
       );
       req
-        .then((e) => navigate("/successfully"))
+        .then((e) => (navigate("/successfully"), props.parent(sendProps)))
         .catch((e) => alert("Preencha os Dados Corretamente."));
     } else alert("Preencha os Dados Corretamente.");
   };
@@ -97,18 +111,20 @@ export default function SelectSeat() {
           <span>Nome do comprador:</span>
           <input
             placeholder="Digite seu nome..."
-            onChange={(event) =>
-              setSendOrder({ ...sendOrder, name: event.target.value })
-            }
+            onChange={(event) => (
+              setSendOrder({ ...sendOrder, name: event.target.value }),
+              setSendProps({ ...sendProps, seats: sendOrder })
+            )}
           />
         </CostumerName>
         <CostumerCPF>
           <span>CPF do comprador:</span>
           <input
             placeholder="Digite seu CPF..."
-            onChange={(event) =>
-              setSendOrder({ ...sendOrder, cpf: event.target.value })
-            }
+            onChange={(event) => (
+              setSendOrder({ ...sendOrder, cpf: event.target.value }),
+              setSendProps({ ...sendProps, seats: sendOrder })
+            )}
           />
         </CostumerCPF>
       </CostumerInfo>

@@ -1,26 +1,41 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-import { Container, Title, Session, Time } from "./styles";
+import { Container, Info, Title } from "./styles";
+import { BackHome } from "./styles";
+import { useNavigate } from "react-router-dom";
 
-export default function Successfully() {
-  const [movies, setMovies] = useState([]);
+export default function Successfully({ order }) {
+  let navigate = useNavigate();
 
-  useEffect(() => {
-    axios
-      .get("https://mock-api.driven.com.br/api/v4/cineflex/movies")
-      .then((res) => setMovies(res.data));
-  }, []);
+  if (order == undefined) return <></>;
 
   return (
     <Container>
-      <Title>Selecione o horário</Title>
+      <Title>Pedido feito com sucesso!</Title>
 
-      <Session>
-        <span style={{ width: "100%" }}>dvavavfb</span>
-        <Time />
-        <Time />
-      </Session>
+      <Info>
+        <span>Filme e sessão</span>
+        <h1>{order.title}</h1>
+        <h1>
+          {order.date} {order.time}
+        </h1>
+      </Info>
+
+      <Info>
+        <span>Filme e sessão</span>
+        {/* {order.seats.id.map((e) => (
+          <h1>{e}</h1>
+        ))} */}
+      </Info>
+
+      <Info>
+        <span>Filme e sessão</span>
+        <h1>Name: {order.seats.name}</h1>
+        <h1>CPF: {order.seats.cpf}</h1>
+      </Info>
+
+      <BackHome onClick={() => navigate("/")}>Voltar pra Home</BackHome>
     </Container>
   );
 }

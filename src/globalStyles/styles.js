@@ -9,9 +9,5 @@ export default createGlobalStyle`
     body{
         font-family: 'Roboto';
     }
-    .selecionado{
-        background-color : #8DD7CF;
-        border-color: #45BDB0;
-    }
-
+   
 `;

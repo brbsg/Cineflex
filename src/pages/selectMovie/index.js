@@ -21,6 +21,7 @@ export default function SelectMovie(props) {
       <Grid>
         {movies.map((element) => (
           <Button
+            key={element.id}
             imgSrc={element.posterURL}
             onClick={() => navigate(`/sessoes/${element.id}`)}
           />

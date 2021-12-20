@@ -10,7 +10,11 @@ import SelectSeat from "./pages/selectSeat";
 import Successfully from "./pages/successfully";
 
 export default function App() {
-  const [movie, setMovie] = useState(1);
+  const [successfully, setSuccessfully] = useState({});
+
+  const handleSuccessfully = (param) => {
+    setSuccessfully(param);
+  };
 
   return (
     <Container>
@@ -21,7 +25,14 @@ export default function App() {
         <Routes>
           <Route path="/" element={<SelectMovie />} />
           <Route path={`/sessoes/:idMovie`} element={<SelectTime />} />
-          <Route path={`/assentos/:idSessao`} element={<SelectSeat />} />
+          <Route
+            path={`/assentos/:idSessao`}
+            element={<SelectSeat parent={handleSuccessfully} />}
+          />
+          <Route
+            path={`/successfully`}
+            element={<Successfully order={successfully} />}
+          />
         </Routes>
       </BrowserRouter>
     </Container>

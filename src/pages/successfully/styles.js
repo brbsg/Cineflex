@@ -7,6 +7,7 @@ export const Container = styled.div`
   overflow: auto;
   padding-top: 67px;
   padding-bottom: 117px;
+  padding: 20px;
 `;
 
 export const Title = styled.div`
@@ -15,61 +16,69 @@ export const Title = styled.div`
   justify-content: center;
   width: 375px;
   height: 102px;
+  padding-right: 100px;
+  padding-left: 100px;
 
   font-style: normal;
-  font-weight: normal;
-  font-size: 24px;
+  font-weight: bold;
+  font-size: 25px;
   line-height: 28px;
+  display: flex;
   align-items: center;
   text-align: center;
   letter-spacing: 0.04em;
 
-  color: #293845;
+  color: #247a6b;
 `;
 
-export const Session = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  width: 375px;
-  height: 102px;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 10px;
+export const Info = styled.div`
+  height: 110px;
+  width: 100%;
+  padding: 20px;
+
+  span {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.04em;
+
+    color: #293845;
+  }
+  h1 {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 26px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.04em;
+
+    color: #293845;
+  }
 `;
-export const Time = styled.button`
+
+export const BackHome = styled.button`
   border: none;
-  margin: 0;
-
-  width: 83px;
-  height: 43px;
-
+  width: 225px;
+  height: 42px;
   background: #e8833a;
   border-radius: 3px;
-`;
 
-export const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-row-gap: 10px;
-  grid-column-gap: 30px;
-`;
+  margin-top: 10%;
 
-export const Button = styled.button`
-  border: none;
-  width: 145px;
-  height: 209px;
+  justify-content: center;
 
-  background: #ffffff;
-  box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1);
-  border-radius: 3px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.04em;
 
-  background-image: url(${(props) => props.imgSrc});
-  background-repeat: no-repeat;
-  background-size: 129px 193px;
-  background-position: center;
-`;
-
-export const Img = styled.img`
-  width: 129px;
-  height: 193px;
+  color: #ffffff;
 `;
