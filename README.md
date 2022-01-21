@@ -13,7 +13,7 @@ Single-Page Application made to a movie theater, using ```React Router``` for th
 ## Overview
 
 <div align='center'>
-  <img style='ustify-content: center' src='/src/assets/img/cineflex.gif' />
+  <img style='ustify-content: center' src='/src/assets/cineflex.gif' />
 </div>
 
 <br />
