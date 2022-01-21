@@ -18,7 +18,6 @@ Single-Page Application made to a movie theater, using ```React Router``` for th
 
 <br />
 
-Try it out now <a href="https://lucas-zz-cineflex.vercel.app/" target="_blank"><strong>here</strong></a>.
 
 ### About
 
@@ -70,5 +69,4 @@ npm run build
 ## Author
 
 - LinkedIn - [Gustavo Barbosa](linkedin.com/in/gustavo-barbosa-01a21222b/)
-- Frontend Mentor - [@Lucas-zz](https://www.frontendmentor.io/profile/Lucas-zz)
 - GMail - [gustavobarbosa7162@gmail.com](mailto:gustavobarbosa7162@gmail.com)
