@@ -69,4 +69,4 @@ npm run build
 ## Author
 
 - LinkedIn - [Gustavo Barbosa](linkedin.com/in/gustavo-barbosa-01a21222b/)
-- GMail - [gustavobarbosa7162@gmail.com](mailto:gustavobarbosa7162@gmail.com)
+- Gmail - [gustavobarbosa7162@gmail.com](mailto:gustavobarbosa7162@gmail.com)
